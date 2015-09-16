@@ -89,3 +89,28 @@ function checkWin(Board) {
     return "Tie!";
   }
 }
+
+$(document).ready(function() {
+
+//Hover + keydown play methods (not working)
+var board = new Board;
+  $(".thirteen").hover(function() {
+  console.log("this works, at least");
+    $(".thirteen").keydown(function(event) {
+      var space = new Space(1,3);
+      if (event.which == 88) {
+        Board.assignSpace(space,"X");
+        $("div.thirteen").append("<h3>" + "X" +"</h3>");
+        Board.checkWin();
+      } else if (event.which == 79) {
+        Board.assignSpace(space,"O");
+        $("div.thirteen").append("<h3>'O'</h3>");
+        Board.checkWin();
+      }
+    });
+  });
+
+  //Other ideas for play:
+    //Player 1 / Player 2 toggle on click()
+    //Forms in each div (prefer not to do this)
+});
