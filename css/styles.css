@@ -1,0 +1,30 @@
+.container {
+  text-align:center;
+}
+
+.game {
+  width:200%;
+  margin-left:30%;
+  margin-right:70%;
+  margin-top:10%;
+}
+.space{
+  height: 100px;
+  width: 100px;
+  border: 2px solid black;
+}
+.thirteen, .twentythree, .thirtythree {
+  border-top: none;
+}
+
+.thirtythree, .thirtytwo, .thirtyone {
+  border-right: none;
+}
+
+.eleven, .twentyone, .thirtyone {
+  border-bottom: none;
+}
+
+.eleven, .twelve, .thirteen {
+  border-left: none;
+}
