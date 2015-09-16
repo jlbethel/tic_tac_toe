@@ -40,15 +40,12 @@ describe('Board', function() {
     expect(testBoard.playerOneSpaces).to.eql(["12"]);
     expect(testBoard.playerTwoSpaces).to.eql([]);
   });
-
 });
 
-
-
-//   it("lets a player mark a space", function() {
-//     var testPlayer = new Player(1);
-//     var testSpace = new Space(1,2);
-//     testSpace.markedBy(testPlayer);
-//     expect(testSpace.markedBy()).to.equal(testPlayer);
-//   });
-// });
+describe('Game', function() {
+  it("returns a horizontal win", function() {
+    var testBoard = new Board();
+    testBoard.playerOneSpaces = ["11", "21", "31"];
+    expect(checkWin()).to.equal("Player 1 wins");
+  });
+});

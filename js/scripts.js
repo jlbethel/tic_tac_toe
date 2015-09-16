@@ -33,21 +33,11 @@ Space.prototype.fullSpace = function() {
   return stringX + stringY;
 }
 
-// Space.prototype.markedBy = function(player) {
-//   if (player.mark() = "X") {
-//     return this.player;
-//   }
-// }
-
 //Board object prototype:
 function Board() {
   this.unclaimedSpaces = ["11", "12", "13", "21", "22", "23", "31", "32", "33"];
   this.playerOneSpaces = [];
   this.playerTwoSpaces = [];
-}
-
-Board.prototype.checkBoard = function() {
-  return this.unclaimedSpaces;
 }
 
 Board.prototype.assignSpace = function(Space, Player) {
@@ -59,6 +49,15 @@ Board.prototype.assignSpace = function(Space, Player) {
     this.playerOneSpaces.push(takenSpace.join(""));
   } else {
     this.playerTwoSpaces.push(takenSpace.join(""));
-  };
+  }
+}
 
+//Win conditions
+function checkWin() {
+  var board = new Board;
+  var playerOne = this.board.playerOneSpaces;
+  console.log(playerOne);
+  if (playerOne.includes("11")) {
+    return "Player 1 wins";
+  }
 }
