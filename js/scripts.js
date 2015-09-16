@@ -53,11 +53,39 @@ Board.prototype.assignSpace = function(Space, Player) {
 }
 
 //Win conditions
-function checkWin() {
-  var board = new Board;
-  var playerOne = this.board.playerOneSpaces;
-  console.log(playerOne);
-  if (playerOne.includes("11")) {
+function checkWin(Board) {
+  var playerOne = Board.playerOneSpaces;
+  var playerTwo = Board.playerTwoSpaces;
+  var availableSpaces = Board.unclaimedSpaces;
+  if (
+    //Horizontal Wins:
+    ((playerOne.indexOf("11") !=-1) && (playerOne.indexOf("21") != -1) && (playerOne.indexOf("31") != -1)) ||
+    ((playerOne.indexOf("12") !=-1) && (playerOne.indexOf("22") != -1) && (playerOne.indexOf("32") != -1)) ||
+    ((playerOne.indexOf("13") !=-1) && (playerOne.indexOf("23") != -1) && (playerOne.indexOf("33") != -1)) ||
+    //Vertical Wins:
+    ((playerOne.indexOf("11") !=-1) && (playerOne.indexOf("12") != -1) && (playerOne.indexOf("13") != -1)) ||
+    ((playerOne.indexOf("21") !=-1) && (playerOne.indexOf("22") != -1) && (playerOne.indexOf("23") != -1)) ||
+    ((playerOne.indexOf("31") !=-1) && (playerOne.indexOf("32") != -1) && (playerOne.indexOf("33") != -1)) ||
+    //Diagonal Wins:
+    ((playerOne.indexOf("13") !=-1) && (playerOne.indexOf("22") != -1) && (playerOne.indexOf("31") != -1)) ||
+    ((playerOne.indexOf("11") !=-1) && (playerOne.indexOf("22") != -1) && (playerOne.indexOf("33") != -1))
+  ){
     return "Player 1 wins";
+  } else if (
+    //Horizontal Wins:
+    ((playerTwo.indexOf("11") !=-1) && (playerTwo.indexOf("21") != -1) && (playerTwo.indexOf("31") != -1)) ||
+    ((playerTwo.indexOf("12") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("32") != -1)) ||
+    ((playerTwo.indexOf("13") !=-1) && (playerTwo.indexOf("23") != -1) && (playerTwo.indexOf("33") != -1)) ||
+    //Vertical Wins:
+    ((playerTwo.indexOf("11") !=-1) && (playerTwo.indexOf("12") != -1) && (playerTwo.indexOf("13") != -1)) ||
+    ((playerTwo.indexOf("21") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("23") != -1)) ||
+    ((playerTwo.indexOf("31") !=-1) && (playerTwo.indexOf("32") != -1) && (playerTwo.indexOf("33") != -1)) ||
+    //Diagonal Wins:
+    ((playerTwo.indexOf("13") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("31") != -1)) ||
+    ((playerTwo.indexOf("11") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("33") != -1))
+  ) {
+    return "Player 2 wins";
+  } else if (availableSpaces = []) {
+    return "Tie!";
   }
 }
