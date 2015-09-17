@@ -52,6 +52,26 @@ Board.prototype.assignSpace = function(Space, Player) {
   }
 }
 
+//Computer object prototype:
+
+//Easy computer
+// function EasyComputer(playerNumber) {
+//   this.playerNumber = 0;
+// }
+
+function EasyComputer() {
+  var player = new Player(0);
+  var board = new Board;
+  // debugger;
+  if(player.playerNumber === 0) {
+    var move = board.unclaimedSpaces[Math.floor(Math.random() * board.unclaimedSpaces.length)];
+    var foundSpace = move.toString();
+    console.log(foundSpace);
+    board.unclaimedSpaces.splice(move, 1);
+    board.playerTwoSpaces.push(foundSpace.join(""));
+  }
+}
+
 //Win conditions
 function checkWin(Board) {
   var playerOne = Board.playerOneSpaces;
@@ -110,10 +130,6 @@ $(document).ready(function() {
       $(".outcome").text(checkWin(board))
     });
   });
-
-  // $(".result").show(function () {
-  //   $(".outcome").text(checkWin(board));
-  // });
 
   //Top row:
   $(".thirteen").one("click", function() {
