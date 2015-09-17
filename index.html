@@ -12,36 +12,43 @@
       <h1>Let's play Tic-Tac-Toe!</h1>
       <h2 class="player1">Player 1's turn...</h2>
       <h2 class="player2">Player 2's turn...</h2>
-
+      <form id="player">
+        <select id="player-select">
+          <option value="two-player" id="two-player">Two Player</option>
+          <option value="easy-computer" id="easy-computer">Easy Computer</option>
+          <!-- <option value="hard-computer" id="hard-computer">Hard Computer</option> -->
+        </select>
+        <button type="submit">Play!</button>
+      </form>
       <div class="game">
         <div class="row">
-          <div class="col-xs-1 space thirteen">
+          <div class="col-xs-1 space 13 thirteen">
           </div>
-          <div class="col-xs-1 space twentythree">
+          <div class="col-xs-1 space 23 twentythree">
           </div>
-          <div class="col-xs-1 space thirtythree">
-          </div>
-          </div>
-          <div class="row">
-          <div class="col-xs-1 space twelve">
-          </div>
-          <div class="col-xs-1 space twentytwo">
-          </div>
-          <div class="col-xs-1 space thirtytwo">
+          <div class="col-xs-1 space 33 thirtythree">
           </div>
           </div>
           <div class="row">
-          <div class="col-xs-1 space eleven">
+          <div class="col-xs-1 space 12 twelve">
           </div>
-          <div class="col-xs-1 space twentyone">
+          <div class="col-xs-1 space 22 twentytwo">
           </div>
-          <div class="col-xs-1 space thirtyone">
+          <div class="col-xs-1 space 32 thirtytwo">
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-xs-1 space 11 eleven">
+          </div>
+          <div class="col-xs-1 space 21 twentyone">
+          </div>
+          <div class="col-xs-1 space 31 thirtyone">
           </div>
         </div>
       </div>
       <div class="result">
         <h2><span class="outcome"></span></h2>
-      </div>          
+      </div>
     </div>
   </body>
 </html>

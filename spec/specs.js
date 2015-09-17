@@ -109,8 +109,8 @@ describe("EasyComputer", function() {
   it("takes a random space", function() {
     var testPlayer = new Player(0);
     var testBoard = new Board();
-    EasyComputer();
-    expect(testBoard.unclaimedSpaces.length).to.equal(8);
-    expect(testBoard.playerTwoSpaces.length).to.equal(1);
+    easyComputer(testBoard);
+    expect(testBoard.unclaimedSpaces.length).to.eql(8);
+    expect(testBoard.playerTwoSpaces.length).to.eql(1);
   })
 })

@@ -52,24 +52,21 @@ Board.prototype.assignSpace = function(Space, Player) {
   }
 }
 
-//Computer object prototype:
-
-//Easy computer
-// function EasyComputer(playerNumber) {
-//   this.playerNumber = 0;
-// }
-
-function EasyComputer() {
+//Computer logic
+function easyComputer(Board) {
   var player = new Player(0);
-  var board = new Board;
+  // var Board = new Board;
   // debugger;
   if(player.playerNumber === 0) {
-    var move = board.unclaimedSpaces[Math.floor(Math.random() * board.unclaimedSpaces.length)];
-    var foundSpace = move.toString();
-    console.log(foundSpace);
-    board.unclaimedSpaces.splice(move, 1);
-    board.playerTwoSpaces.push(foundSpace.join(""));
+    var move = Board.unclaimedSpaces[Math.floor(Math.random() * Board.unclaimedSpaces.length)];
+    console.log(move);
+    var stringSpace = move.toString();
+    var foundSpace = Board.unclaimedSpaces.indexOf(stringSpace);
+    var takenSpace = Board.unclaimedSpaces.splice(foundSpace, 1);
+    Board.playerTwoSpaces.push(takenSpace.join(""));
+    turn(player);
   }
+  return stringSpace;
 }
 
 //Win conditions
@@ -123,77 +120,86 @@ $(document).ready(function() {
   var player = new Player(1);
   var board = new Board;
 
-  $(".game").on("click", function() {
-    $(".player1").toggle();
-    $(".player2").toggle();
-    $(".result").show(function () {
-      $(".outcome").text(checkWin(board))
-    });
+
+  $("form#player").submit(function(event) {
+    event.preventDefault();
+    $(".game").show();
+    if ($("#player-select").val() === "two-player") {
+      $(".game").on("click", function() {
+        $(".player1").toggle();
+        $(".player2").toggle();
+        turn(player);
+        $(".result").show(function () {
+          $(".outcome").text(checkWin(board))
+        });
+      });
+    } else if ($("#player-select").val() === "easy-computer") {
+      $(".game").on("click", function() {
+        $(".player1").toggle();
+        $(".player2").toggle();
+        $(".result").show(function () {
+          $(".outcome").text(checkWin(board))
+        $("." + easyComputer(board)).append("<h2>" + "O" + "</h2>");
+        });
+      });
+    }
   });
+
 
   //Top row:
-  $(".thirteen").one("click", function() {
+  $(".13").one("click", function() {
     var space = new Space(1,3);
-    $(".thirteen").append("<h2>" + player.mark() + "</h2>");
+    $(".13").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
-  $(".twentythree").one("click", function() {
+  $(".23").one("click", function() {
     var space = new Space(2,3);
-    $(".twentythree").append("<h2>" + player.mark() + "</h2>");
+    $(".23").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
-  $(".thirtythree").one("click", function() {
+  $(".33").one("click", function() {
     var space = new Space(3,3);
-    $(".thirtythree").append("<h2>" + player.mark() + "</h2>");
+    $(".33").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
   //Middle row:
-  $(".twelve").one("click", function() {
+  $(".12").one("click", function() {
     var space = new Space(1,2);
-    $(".twelve").append("<h2>" + player.mark() + "</h2>");
+    $(".12").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
     });
 
-  $(".twentytwo").one("click", function() {
+  $(".22").one("click", function() {
     var space = new Space(2,2);
-    $(".twentytwo").append("<h2>" + player.mark() + "</h2>");
+    $(".22").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
-  $(".thirtytwo").one("click", function() {
+  $(".32").one("click", function() {
     var space = new Space(3,2);
-    $(".thirtytwo").append("<h2>" + player.mark() + "</h2>");
+    $(".32").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
   //Bottom row:
-  $(".eleven").one("click", function() {
+  $(".11").one("click", function() {
     var space = new Space(1,1);
-    $(".eleven").append("<h2>" + player.mark() + "</h2>");
+    $(".11").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
-  $(".twentyone").one("click", function() {
+  $(".21").one("click", function() {
     var space = new Space(2,1);
-    $(".twentyone").append("<h2>" + player.mark() + "</h2>");
+    $(".21").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 
-  $(".thirtyone").one("click", function() {
+  $(".31").one("click", function() {
     var space = new Space(3,1);
-    $(".thirtyone").append("<h2>" + player.mark() + "</h2>");
+    $(".31").append("<h2>" + player.mark() + "</h2>");
     board.assignSpace(space, player);
-    turn(player);
   });
 });
