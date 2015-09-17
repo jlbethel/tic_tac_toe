@@ -90,24 +90,63 @@ function checkWin(Board) {
   }
 }
 
+//Turn
+var turn = function(Player) {
+  Player.playerNumber = Player.playerNumber ? 0 : 1;
+
+}
+
+//jQuery
 $(document).ready(function() {
 
-//Hover + keydown play methods (not working)
+var player = new Player();
 var board = new Board;
-  $(".thirteen").hover(function() {
-  console.log("this works, at least");
-    $(".thirteen").keydown(function(event) {
-      var space = new Space(1,3);
-      if (event.which == 88) {
-        Board.assignSpace(space,"X");
-        $("div.thirteen").append("<h3>" + "X" +"</h3>");
-        Board.checkWin();
-      } else if (event.which == 79) {
-        Board.assignSpace(space,"O");
-        $("div.thirteen").append("<h3>'O'</h3>");
-        Board.checkWin();
-      }
-    });
+  //Top row:
+  $(".thirteen").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  $(".twentythree").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  $(".thirtythree").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  //Middle row:
+  $(".twelve").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  $(".twentytwo").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  $(".thirtytwo").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  //Bottom row:
+  $(".eleven").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  $(".twentyone").one("click", function() {
+    turn(player);
+    console.log(player);
+  });
+
+  $(".thirtyone").one("click", function() {
+    turn(player);
+    console.log(player);
   });
 
   //Other ideas for play:
