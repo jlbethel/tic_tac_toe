@@ -52,7 +52,7 @@ describe('Game', function() {
     testBoard.assignSpace(testSpace, testPlayer);
     testBoard.assignSpace(testSpace2, testPlayer);
     testBoard.assignSpace(testSpace3, testPlayer);
-    expect(checkWin(testBoard)).to.equal("Player 1 wins");
+    expect(checkWin(testBoard)).to.equal("Player 1 wins!");
   });
 
   it("returns a vertical win", function() {
@@ -64,7 +64,7 @@ describe('Game', function() {
     testBoard.assignSpace(testSpace, testPlayer);
     testBoard.assignSpace(testSpace2, testPlayer);
     testBoard.assignSpace(testSpace3, testPlayer);
-    expect(checkWin(testBoard)).to.equal("Player 1 wins");
+    expect(checkWin(testBoard)).to.equal("Player 1 wins!");
   });
 
   it("returns a diagonal win", function() {
@@ -76,7 +76,7 @@ describe('Game', function() {
     testBoard.assignSpace(testSpace, testPlayer);
     testBoard.assignSpace(testSpace2, testPlayer);
     testBoard.assignSpace(testSpace3, testPlayer);
-    expect(checkWin(testBoard)).to.equal("Player 2 wins");
+    expect(checkWin(testBoard)).to.equal("Player 2 wins!");
   });
 
   it("returns a tie", function() {

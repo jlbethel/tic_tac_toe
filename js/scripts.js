@@ -70,7 +70,7 @@ function checkWin(Board) {
     ((playerOne.indexOf("13") !=-1) && (playerOne.indexOf("22") != -1) && (playerOne.indexOf("31") != -1)) ||
     ((playerOne.indexOf("11") !=-1) && (playerOne.indexOf("22") != -1) && (playerOne.indexOf("33") != -1))
   ){
-    return "Player 1 wins";
+    return "Player 1 wins!";
   } else if (
     //Horizontal Wins:
     ((playerTwo.indexOf("11") !=-1) && (playerTwo.indexOf("21") != -1) && (playerTwo.indexOf("31") != -1)) ||
@@ -84,7 +84,7 @@ function checkWin(Board) {
     ((playerTwo.indexOf("13") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("31") != -1)) ||
     ((playerTwo.indexOf("11") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("33") != -1))
   ) {
-    return "Player 2 wins";
+    return "Player 2 wins!";
   } else if (availableSpaces.length === 0) {
     return "Tie!";
   }
@@ -100,8 +100,20 @@ var turn = function(Player) {
 //jQuery
 $(document).ready(function() {
 
-var player = new Player(1);
-var board = new Board;
+  var player = new Player(1);
+  var board = new Board;
+
+  $(".game").on("click", function() {
+    $(".player1").toggle();
+    $(".player2").toggle();
+    $(".result").show(function () {
+      $(".outcome").text(checkWin(board))
+    });
+  });
+
+  // $(".result").show(function () {
+  //   $(".outcome").text(checkWin(board));
+  // });
 
   //Top row:
   $(".thirteen").one("click", function() {
