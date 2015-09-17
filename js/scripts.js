@@ -85,71 +85,87 @@ function checkWin(Board) {
     ((playerTwo.indexOf("11") !=-1) && (playerTwo.indexOf("22") != -1) && (playerTwo.indexOf("33") != -1))
   ) {
     return "Player 2 wins";
-  } else if (availableSpaces = []) {
+  } else if (availableSpaces.length === 0) {
     return "Tie!";
   }
 }
 
 //Turn
 var turn = function(Player) {
+  var board = new Board;
+  checkWin(board);
   Player.playerNumber = Player.playerNumber ? 0 : 1;
-
 }
 
 //jQuery
 $(document).ready(function() {
 
-var player = new Player();
+var player = new Player(1);
 var board = new Board;
+
   //Top row:
   $(".thirteen").one("click", function() {
+    var space = new Space(1,3);
+    $(".thirteen").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   $(".twentythree").one("click", function() {
+    var space = new Space(2,3);
+    $(".twentythree").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   $(".thirtythree").one("click", function() {
+    var space = new Space(3,3);
+    $(".thirtythree").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   //Middle row:
   $(".twelve").one("click", function() {
+    var space = new Space(1,2);
+    $(".twelve").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
-  });
+    });
 
   $(".twentytwo").one("click", function() {
+    var space = new Space(2,2);
+    $(".twentytwo").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   $(".thirtytwo").one("click", function() {
+    var space = new Space(3,2);
+    $(".thirtytwo").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   //Bottom row:
   $(".eleven").one("click", function() {
+    var space = new Space(1,1);
+    $(".eleven").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   $(".twentyone").one("click", function() {
+    var space = new Space(2,1);
+    $(".twentyone").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
 
   $(".thirtyone").one("click", function() {
+    var space = new Space(3,1);
+    $(".thirtyone").append("<h2>" + player.mark() + "</h2>");
+    board.assignSpace(space, player);
     turn(player);
-    console.log(player);
   });
-
-  //Other ideas for play:
-    //Player 1 / Player 2 toggle on click()
-    //Forms in each div (prefer not to do this)
 });
