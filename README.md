@@ -1,6 +1,6 @@
 # Tic Tac Toe:
 
-##### Find part of a string and replace it with something else, 9/17/15
+##### A basic tic-tac-toe game to run in a browser, 9/17/15
 
 #### By _Kyle Pratuch and Jason Bethel_
 
